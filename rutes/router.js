@@ -93,20 +93,30 @@ function renderRoute() {
 
     const pathname = window.location.pathname;
 
+    console.log("URL ACTUAL:", pathname);
+
     for (const route of routes) {
+
+        console.log("PROBANDO:", route.path);
 
         const params = matchRoute(
             route.path,
             pathname
         );
 
+        console.log("RESULTADO:", params);
+
         if (params !== null) {
+
+            console.log("MATCH ENCONTRADO");
 
             route.render(params);
 
             return;
         }
     }
+
+    console.log("NO SE ENCONTRO RUTA");
 
     app.innerHTML = `
         <h2>404</h2>
